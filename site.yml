@@ -1,0 +1,14 @@
+---
+- name: run test playbook
+  hosts: test
+  tasks:
+    - name: ping
+      ping:
+
+    - name: get date
+      shell: date '+%Y-%m-%d %H-%M-%S'
+      register: cur_date
+
+    - name: print date
+      debug:
+        var: cur_date.stdout
